@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Test Task</title>
+
+    <!--normalize css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css"/>
+    <!--bootstrap css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <!--add common css-->
+    <link rel="stylesheet" href="src/css/style.css"/>
+</head>
+<body>
+
+<div class="app" id="vue-app">
+    <div class="container">
+        <form action="" @submit.prevent="send" class="filter-form">
+            <table class="table table-striped">
+                <tr>
+                    <td>
+                        <input v-model="name" @blur="send" class="form-control" name="name"
+                               placeholder="Enter your name..."
+                               type="text"/>
+                    </td>
+                    <td>
+                        <select v-model.lazy="country" @change="send" class="form-control" name="country">
+                            <option v-for="option in optionsList" :value="option.value">{{option.text}}</option>
+                        </select>
+                    </td>
+                    <td>
+                        <div class="checkbox-inline"><label>
+                            <input value="sub" v-model="checkedNav" @change="send" type="checkbox">
+                            My Subscriptions
+                        </label>
+                        </div>
+                        <div class="checkbox-inline"><label>
+                            <input value="lik" v-model="checkedNav" @change="send" type="checkbox">
+                            Liked
+                        </label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h4>Пользователи</h4>
+                        <ul>
+                            <li v-for="user in filteredUser">{{ user.name }}</li>
+                        </ul>
+                    </td>
+                    <td colspan="2">
+                        <div class="filter-tab pull-right">
+                            <div class="filter-tab-item" v-show="showNav('sub')">
+                                <h4>My Subscriptions</h4>
+                                <ul>
+                                    <li>Lorem ipsum.</li>
+                                    <li>Alias, officia?</li>
+                                    <li>Distinctio, excepturi.</li>
+                                    <li>Assumenda, minima?</li>
+                                    <li>Esse, vel.</li>
+                                </ul>
+                            </div>
+                            <div class="filter-tab-item" v-show="showNav('lik')">
+                                <h4>Liked</h4>
+                                <ul>
+                                    <li>Lorem ipsum.</li>
+                                    <li>Alias, officia?</li>
+                                    <li>Distinctio, excepturi.</li>
+                                    <li>Assumenda, minima?</li>
+                                    <li>Esse, vel.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<!--vue js-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.0/vue.min.js"></script>
+<!--axios-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.2/axios.min.js"></script>
+<!-- add common js -->
+<script src="src/js/app.js"></script>
+</body>
+</html>

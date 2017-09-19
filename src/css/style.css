@@ -1,0 +1,19 @@
+.app {
+    margin: 50px 0;
+}
+
+.filter-form .table {
+    table-layout: fixed;
+}
+
+.filter-form .table tr:first-child td {
+    vertical-align: middle;
+}
+
+.filter-form td label {
+    margin-bottom: 0;
+}
+
+.filter-tab-item {
+    display: inline-block;
+}
